@@ -1,4 +1,25 @@
 services:
+
+  ngx-snake-fe:
+    image: ngx-snake-frontend:latest
+    container_name: ngx-snake-fe
+    depends_on:
+      - ngx-snake-be
+    ports:
+      - "80:80"
+    networks:
+      - ngx-snake
+
+  ngx-snake-be:
+    image: ngx-snake-backend:latest
+    container_name: ngx-snake-be
+    depends_on:
+      - ngx-snake-db
+    volumes:
+      - "./mountpoints/backend/.env:/usr/app/.env"
+    networks:
+      - ngx-snake
+
   ngx-snake-db:
     image: mariadb:10.5.8
     restart: always
@@ -7,7 +28,14 @@ services:
       MYSQL_ROOT_PASSWORD: dev
       MYSQL_DATABASE: ngx_snake
       LANG: C.UTF-8
-    ports:
-      - '3306:3306'
     volumes:
       - ./mountpoints/db/:/var/lib/mysql
+    ports:
+      - 3306:3306
+    networks:
+      - ngx-snake
+
+networks:
+  ngx-snake:
+    name: ngx-snake
+    driver: bridge

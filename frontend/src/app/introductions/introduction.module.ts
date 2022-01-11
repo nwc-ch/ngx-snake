@@ -6,6 +6,7 @@ import { UiCardModule } from '../ui/ui-card/ui-card.module';
 import { IntroductionRoutingModule } from './introduction-routing.module';
 import { IntroductionComponent } from './introduction.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
     IntroductionRoutingModule,
     UiCardModule,
     MatButtonModule

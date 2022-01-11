@@ -28,6 +28,7 @@
     "@prisma/client": "^3.7.0",
     "dotenv": "^10.0.0",
     "dotenv-cli": "^4.1.1",
+    "nestjs-real-ip": "^2.0.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.4.0",
@@ -49,13 +50,13 @@
     "jest": "^27.4.5",
     "prettier": "^2.5.1",
     "prisma": "^3.7.0",
+    "rimraf": "^3.0.2",
     "supertest": "^6.1.6",
     "ts-jest": "^27.1.2",
     "ts-loader": "^9.2.6",
     "ts-node": "^10.4.0",
     "tsconfig-paths": "^3.12.0",
-    "typescript": "^4.5.4",
-    "rimraf": "^3.0.2"
+    "typescript": "^4.5.4"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -63,7 +64,10 @@
       "json",
       "ts"
     ],
-    "roots": ["src", "test"],
+    "roots": [
+      "src",
+      "test"
+    ],
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
@@ -73,6 +77,8 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node",
-    "setupFiles": ["./test/test-setup.ts"]
+    "setupFiles": [
+      "./test/test-setup.ts"
+    ]
   }
 }
